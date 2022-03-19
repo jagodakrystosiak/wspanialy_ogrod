@@ -21,6 +21,11 @@ HTML, CSS, JavaScript, positioning, responsiveness, SPA, form validation, jQuery
 - Bootstrap v5.0.1
 
 
+## Features
+- User can read articles and view plants.
+- User can place orders in the store.
+
+
 ## Screenshots
 ![Example screenshot](./img/screenshot.png)
 
