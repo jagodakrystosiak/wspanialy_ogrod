@@ -1,0 +1,28 @@
+
+/* Laboratorium 1.1 */
+/* Budowa wyglądu tabelki */
+
+/* ustawienia dla całej tabeli: */ 
+table { 
+    background: #98bb00; /* kolor tła tabeli */
+    text-align:center; /* ustawienie pozycji tekstu */
+    width: 94%; /* ustawienie szerokości */
+    margin: 2%; /* ustawienie 2% marginesu */
+    border: 1pt solid #98bb00; /* ustawienie obramowania tabeli */
+} 
+
+/* ustawienia częsci nagłówkowej i ciała tabeli */ 
+thead, tbody { 
+    background: white; /* ustawienie tła */
+} 
+
+/* ustawienia części nagłówkowej */
+thead {
+    color: #696f00; /* ustawienie koloru tekstu */
+}
+
+/* ustawienia pojedynczych komórek zwykłych i nagłówkowych */ 
+td, th { 
+    border: 1pt solid #98bb00; /* ustawienie obramowania komórki */
+} 
+

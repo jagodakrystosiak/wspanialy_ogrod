@@ -1,0 +1,194 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Wspaniały Ogród</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jagoda Krystosiak"><!-- znacznik określa autora dokumentu -->
+        <link rel="icon" type="image/png" sizes="310x310" href="images/icon.png"><!-- ikona wyświetlana na pasku stron -->
+
+        <!-- Laboratorium 2 -->
+        <!-- załadowanie do strony arkusza CSS -->
+        <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/tabele.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/nawigacja.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/pozycjonowanie.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/formularze.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/media.css" type="text/css" /> <!-- w tym css Laboratorium 5 zapytania o media -->
+
+        <!-- Laboratorium 9 -->
+        <!-- biblioteka jquery i wykorzystanie jquery lightbox -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/lightbox.js"></script> 
+        <link rel="stylesheet" href="css/lightbox.css" />
+
+        <!-- Laboratorium 7 -->
+        <!-- załadowanie do strony pliku javascript, który odpowiedzialny jest za generowanie zawartości na stronie -->
+        <script src="JS/generowanie.js"></script>
+
+        <!-- funkcje odpowiedzialne za obsługę sklepu -->
+        <script src="JS/funkcje.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="baner">
+                <a href="index.html"><img src="images/logo.jpg" alt="Logo"></a>
+                <!-- w sekcji baner umieszczam zdjęcie z logo strony, które wykonałam samodzielnie, kliknięcie na logo prowadzi na stronę główną (index.html)-->
+            </div> 
+            <div id="menu">
+                <!-- Laboratorium 3 -->
+                <!-- Budowa nawigacji bazując na zadaniu 3.4 -->
+                <ul id="nav"><!-- nawigacja zawiera kilka poziomów, które będą edytowane w style.css -->
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="">Porady</a>
+                        <ul>
+                            <!-- Laboratorium 1.1 - treść, Laboratorium 2 - tabele i Laboratorium 3 - zdjęcia z linkiem do ich samych -->
+                            <li><button onclick="article_maj()">Ogród w maju</button></li> <!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="article_czerwiec()">Ogród w czerwcu</button></li>
+                            <li><button onclick="article_podłoża()">Podłoże dla roślin</button></li>
+                            <li><button onclick="article_storczyk()">Hodowla stroczyków</button></li>
+                            <li><button onclick="article_lilie()">Hodowla lili</button></li>
+                            <li><button onclick="article_borówka()">Hodowla borówek</button></li>
+                            <li><button onclick="article_mech()">Mech w ogrodzie</button></li>
+                            <li><button onclick="article_kret()">Kret w ogrodzie</button></li>
+                            <li><button onclick="article_mrówki()">Mrówki w ogrodzie</button></li>
+                            <li><button onclick="article_ślimaki()">Ślimaki w ogrodzie</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Katalog roślin</a>
+                        <ul>
+                            <!-- Laboratorium 3 - galeria i Laboratorium 9 - wykorzystanie jquery lightbox -->
+                            <li><button onclick="katalog_drzewa()">Drzewa i krzewy</button></li><!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="katalog_kwiaty()">Kwiaty i rośliny ozdobne</button></li>
+                            <li><button onclick="katalog_owoce()">Owoce</button></li>
+                            <li><button onclick="katalog_warzywa()">Warzywa i zioła</button></li>
+                            <li><button onclick="katalog_chwasty()">Chwasty</button></li>
+                        </ul>
+                    </li>
+                    <!-- Laboratorium 10 - galeria z wykorzystaniem bootstrap -->
+                    <li><a href="galeria_bootstrap.html">Galeria</a></li>
+                    <!-- Laboratorium 11.1 - wykorzystanie lokalnych magazynów danych, Laboratorium 6 - funkcje JavaScript, Laboratorium 1.2 - tworzenie formularzy, Laboratorium 4 - ich zaawansowane możliwości, Laboratorium 8 - obsługa za pomocą javascript -->
+                    <li><a href="sklep.html">Sklep</a></li> <!-- formularz znajduje się po kliknięciu przejdź do realizacji zamówienia -->
+                    <!-- Laboratorium 11.2 - wykorzytanie geolokaliacji -->
+                    <li><a href="znajdz.html">Znajdź nas</a></li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <div id="strona_główna"></div>
+            <div id="artykul">
+                <h1>Sklep z nasionami</h1>
+                <form action="koszyk_realizacja.html" method="get">
+                    <h3>Wybierz nasiona: </h3>
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Nasiona kwiatów</th>
+                                <th>Cena</th>
+                                <th>Nasiona warzyw</th>
+                                <th>Cena</th>
+                                <th>Nasiona ziół</th>
+                                <th>Cena</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat1" value="Aksamitka 'Bonita' mieszanka">Aksamitka 'Bonita' mieszanka</td>
+                                <td><input id="cena_k1" class="cena" size="1" disabled value="6.99">zł</td>
+                                <td><input type="checkbox" id="warzyw1" value="Pomidor mięsisty 'Country Taste'">Pomidor mięsisty 'Country Taste'</td>
+                                <td><input id="cena_w1" class="cena" size="1" disabled value="19.99">zł</td>
+                                <td><input type="checkbox" id="zioło1" value="Stewia - roślina słodsza niż cukier">Stewia - roślina słodsza niż cukier</td>
+                                <td><input id="cena_z1" class="cena" size="1" disabled value="19.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat2" value="Bratek ogrodowy 'Orchideenblutiger'">Bratek ogrodowy 'Orchideenblutiger'</td>
+                                <td><input id="cena_k2" class="cena" size="1" disabled value="13.49">zł</td>
+                                <td><input type="checkbox" id="warzyw2" value="Papryka 'Yellow California Wonder'">Papryka 'Yellow California Wonder'</td>
+                                <td><input id="cena_w2" class="cena" size="1" disabled value="9.99">zł</td>
+                                <td><input type="checkbox" id="zioło2" value="Rzeżucha 'Cressida'">Rzeżucha 'Cressida'</td>
+                                <td><input id="cena_z2" class="cena" size="1" disabled value="9.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat3" value="Chaber bławatek 'Classic Romant'">Chaber bławatek 'Classic Romant'</td>
+                                <td><input id="cena_k3" class="cena" size="1" disabled value="9.99">zł</td>
+                                <td><input type="checkbox" id="warzyw3" value="Bób 'Piccola'">Bób 'Piccola'</td>
+                                <td><input id="cena_w3" class="cena" size="2" disabled value="24.99">zł</td>
+                                <td><input type="checkbox" id="zioło3" value="Sałata musztardowa">Sałata musztardowa</td>
+                                <td><input id="cena_z3" class="cena" size="1" disabled value="13.49">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat4" value="Lawenda wąskolistna">Lawenda wąskolistna</td>
+                                <td><input id="cena_k4" class="cena" size="1" disabled value="13.49">zł</td>
+                                <td><input type="checkbox" id="warzyw4" value="Burak liściowy / Boćwina 'Lukullus'">Burak liściowy / Boćwina 'Lukullus'</td>
+                                <td><input id="cena_w4" class="cena" size="1" disabled value="6.99">zł</td>
+                                <td><input type="checkbox" id="zioło4" value="Czosnek nieźwiedzi">Czosnek nieźwiedzi</td>
+                                <td><input id="cena_z4" class="cena" size="1" disabled value="13.49">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat5" value="Lwia paszcza / Wyżlin większy mieszanka">Lwia paszcza / Wyżlin większy mieszanka</td>
+                                <td><input id="cena_k5" class="cena" size="1" disabled value="6.99">zł</td>
+                                <td><input type="checkbox" id="warzyw5" value="Cebula zwyczajna">Cebula zwyczajna</td>
+                                <td><input id="cena_w5" class="cena" size="1" disabled value="6.99">zł</td>
+                                <td><input type="checkbox" id="zioło5" value="Koper ogrodowy">Koper ogrodowy</td>
+                                <td><input id="cena_z5" class="cena" size="1" disabled value="6.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat6" value="Łubin Hartwega mieszanka (jednoroczny)">Łubin Hartwega mieszanka (jednoroczny)</td>
+                                <td><input id="cena_k6" class="cena" size="1" disabled value="5.99">zł</td>
+                                <td><input type="checkbox" id="warzyw6" value="Czosnek dęty">Czosnek dęty</td>
+                                <td><input id="cena_w6" class="cena" size="1" disabled value="6.99">zł</td>
+                                <td><input type="checkbox" id="zioło6" value="Lubczyk ogrodowy">Lubczyk ogrodowy</td>
+                                <td><input id="cena_z6" class="cena" size="1" disabled value="6.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat7" value="Mak polny 'Chorus'">Mak polny 'Chorus'</td>
+                                <td><input id="cena_k7" class="cena" size="1" disabled value="13.49">zł</td>
+                                <td><input type="checkbox" id="warzyw7" value="Fasola zwykła 'Eva' (tyczna)">Fasola zwykła 'Eva' (tyczna)</td>
+                                <td><input id="cena_w7" class="cena" size="1" disabled value="13.49">zł</td>
+                                <td><input type="checkbox" id="zioło7" value="Majeranek / Lebiodka">Majeranek / Lebiodka</td>
+                                <td><input id="cena_z7" class="cena" size="1" disabled value="6.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat8" value="Nasturcja mniejsza 'Tip Top Mix'">Nasturcja mniejsza 'Tip Top Mix'</td>
+                                <td><input id="cena_k8" class="cena" size="1" disabled value="9.99">zł</td>
+                                <td><input type="checkbox" id="warzyw8" value="Fasola zwykła 'Faraday'">Fasola zwykła 'Faraday'</td>
+                                <td><input id="cena_w8" class="cena" size="1" disabled value="13.49">zł</td>
+                                <td><input type="checkbox" id="zioło8" value="Mięta pieprzowa">Mięta pieprzowa</td>
+                                <td><input id="cena_z8" class="cena" size="1" disabled value="6.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat9" value="Niezapominajka 'Heavenly Blue'">Niezapominajka 'Heavenly Blue'</td>
+                                <td><input id="cena_k9" class="cena" size="1" disabled value="9.99">zł</td>
+                                <td><input type="checkbox" id="warzyw9" value="Fasola zwykła 'Primavera'">Fasola zwykła 'Primavera'</td>
+                                <td><input id="cena_w9" class="cena" size="1" disabled value="13.49">zł</td>
+                                <td><input type="checkbox" id="zioło9" value="Pietruszka 'Afrodite'">Pietruszka 'Afrodite'</td>
+                                <td><input id="cena_z9" class="cena" size="1" disabled value="9.99">zł</td>
+                            </tr>
+                            <tr>
+                                <td><input type="checkbox" id="kwiat10" value="Orlik niebieski mieszanka">Orlik niebieski mieszanka</td>
+                                <td><input id="cena_k10" class="cena" size="1" disabled value="6.99">zł</td>
+                                <td><input type="checkbox" id="warzyw10" value="Kapusta biała 'Brunswijker'">Kapusta biała 'Brunswijker'</td>
+                                <td><input id="cena_w10" class="cena" size="1" disabled value="5.99">zł</td>
+                                <td><input type="checkbox" id="zioło10" value="Roszponka 'Favor'">Roszponka 'Favor'</td>
+                                <td><input id="cena_z10" class="cena" size="1" disabled value="13.49">zł</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                    <button type="reset" onclick="zapis_do_koszyka()">Dodaj do koszyka</button>
+                    <button type="reset" onclick="wyświetl_koszyk()">Wyświetl koszyk</button>
+                    <button type="reset" onclick="usuń_koszyk()">Usuń zawartość koszyka</button>
+                    <button type="submit">Przejdź do realizacji zamówienia</button>
+                </form>
+                <div id="koszyk"></div>
+                <div id="razem"></div>
+            </div>
+            <div id="more"></div>
+        </section>
+        <footer>
+            <img src="images/trawa-tło.png" alt="Trawa">
+            <!-- w stopce umieszczam grafikę trawy oraz moje inicjały -->
+            &copy;JK
+        </footer>
+    </body>
+</html>
+

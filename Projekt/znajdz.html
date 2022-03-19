@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Wspaniały Ogród</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jagoda Krystosiak"><!-- znacznik określa autora dokumentu -->
+        <link rel="icon" type="image/png" sizes="310x310" href="images/icon.png"><!-- ikona wyświetlana na pasku stron -->
+
+        <!-- Laboratorium 2 -->
+        <!-- załadowanie do strony arkusza CSS -->
+        <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/tabele.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/nawigacja.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/pozycjonowanie.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/formularze.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/media.css" type="text/css" /> <!-- w tym css Laboratorium 5 zapytania o media -->
+
+        <!-- Laboratorium 9 -->
+        <!-- biblioteka jquery i wykorzystanie jquery lightbox -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/lightbox.js"></script> 
+        <link rel="stylesheet" href="css/lightbox.css" />
+
+        <!-- Laboratorium 7 -->
+        <!-- załadowanie do strony pliku javascript, który odpowiedzialny jest za generowanie zawartości na stronie -->
+        <script src="JS/generowanie.js"></script>
+        
+        <!-- niezbędne do funkcjonowania mapki -->
+        <script src="https://maps.google.com/maps/api/js?sensor=false"></script> 
+        <script src="js/geolokalizacja.js"></script> 
+    </head>
+    <body>
+        <header>
+            <div id="baner">
+                <a href="index.html"><img src="images/logo.jpg" alt="Logo"></a>
+                <!-- w sekcji baner umieszczam zdjęcie z logo strony, które wykonałam samodzielnie, kliknięcie na logo prowadzi na stronę główną (index.html)-->
+            </div> 
+            <div id="menu">
+                <!-- Laboratorium 3 -->
+                <!-- Budowa nawigacji bazując na zadaniu 3.4 -->
+                <ul id="nav"><!-- nawigacja zawiera kilka poziomów, które będą edytowane w style.css -->
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="">Porady</a>
+                        <ul>
+                            <!-- Laboratorium 1.1 - treść, Laboratorium 2 - tabele i Laboratorium 3 - zdjęcia z linkiem do ich samych -->
+                            <li><button onclick="article_maj()">Ogród w maju</button></li> <!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="article_czerwiec()">Ogród w czerwcu</button></li>
+                            <li><button onclick="article_podłoża()">Podłoże dla roślin</button></li>
+                            <li><button onclick="article_storczyk()">Hodowla stroczyków</button></li>
+                            <li><button onclick="article_lilie()">Hodowla lili</button></li>
+                            <li><button onclick="article_borówka()">Hodowla borówek</button></li>
+                            <li><button onclick="article_mech()">Mech w ogrodzie</button></li>
+                            <li><button onclick="article_kret()">Kret w ogrodzie</button></li>
+                            <li><button onclick="article_mrówki()">Mrówki w ogrodzie</button></li>
+                            <li><button onclick="article_ślimaki()">Ślimaki w ogrodzie</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Katalog roślin</a>
+                        <ul>
+                            <!-- Laboratorium 3 - galeria i Laboratorium 9 - wykorzystanie jquery lightbox -->
+                            <li><button onclick="katalog_drzewa()">Drzewa i krzewy</button></li><!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="katalog_kwiaty()">Kwiaty i rośliny ozdobne</button></li>
+                            <li><button onclick="katalog_owoce()">Owoce</button></li>
+                            <li><button onclick="katalog_warzywa()">Warzywa i zioła</button></li>
+                            <li><button onclick="katalog_chwasty()">Chwasty</button></li>
+                        </ul>
+                    </li>
+                    <!-- Laboratorium 10 - galeria z wykorzystaniem bootstrap -->
+                    <li><a href="galeria_bootstrap.html">Galeria</a></li>
+                    <!-- Laboratorium 11.1 - wykorzystanie lokalnych magazynów danych, Laboratorium 6 - funkcje JavaScript, Laboratorium 1.2 - tworzenie formularzy, Laboratorium 4 - ich zaawansowane możliwości, Laboratorium 8 - obsługa za pomocą javascript -->
+                    <li><a href="sklep.html">Sklep</a></li> <!-- formularz znajduje się po kliknięciu przejdź do realizacji zamówienia -->
+                    <!-- Laboratorium 11.2 - wykorzytanie geolokaliacji -->
+                    <li><a href="znajdz.html">Znajdź nas</a></li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <div id="strona_główna"></div>
+            <div id="artykul">
+                <h1>Znajdź najbliższy sklep</h1>
+                <button onclick="getLocation()">Szukaj</button>
+                <div id="geo"></div>
+                <div id="mapka" style="width:350px; height:250px;"></div>
+            </div>
+            <div id="more"></div>
+        </section>
+        <footer>
+            <img src="images/trawa-tło.png" alt="Trawa">
+            <!-- w stopce umieszczam grafikę trawy oraz moje inicjały -->
+            &copy;JK
+        </footer>
+    </body>
+</html>

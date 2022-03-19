@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Wspaniały Ogród</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jagoda Krystosiak"><!-- znacznik określa autora dokumentu -->
+        <link rel="icon" type="image/png" sizes="310x310" href="images/icon.png"><!-- ikona wyświetlana na pasku stron -->
+        
+        <!-- Laboratorium 2 -->
+        <!-- załadowanie do strony arkusza CSS -->
+        <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/tabele.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/nawigacja.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/pozycjonowanie.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/formularze.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/media.css" type="text/css" /> <!-- w tym css Laboratorium 5 zapytania o media -->
+        
+        <!-- Laboratorium 9 -->
+        <!-- biblioteka jquery i wykorzystanie jquery lightbox -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/lightbox.js"></script> 
+        <link rel="stylesheet" href="css/lightbox.css" />
+        
+        <!-- Laboratorium 7 -->
+        <!-- załadowanie do strony pliku javascript, który odpowiedzialny jest za generowanie zawartości na stronie -->
+        <script src="JS/generowanie.js"></script>
+    </head>
+    <body>
+        <header>
+            <div id="baner">
+                <a href="index.html"><img src="images/logo.jpg" alt="Logo"></a>
+                <!-- w sekcji baner umieszczam zdjęcie z logo strony, które wykonałam samodzielnie, kliknięcie na logo prowadzi na stronę główną (index.html)-->
+            </div> 
+            <div id="menu">
+                <!-- Laboratorium 3 -->
+                <!-- Budowa nawigacji bazując na zadaniu 3.4 -->
+                <ul id="nav"><!-- nawigacja zawiera kilka poziomów, które będą edytowane w style.css -->
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="">Porady</a>
+                        <ul>
+                            <!-- Laboratorium 1.1 - treść, Laboratorium 2 - tabele i Laboratorium 3 - zdjęcia z linkiem do ich samych -->
+                            <li><button onclick="article_maj()">Ogród w maju</button></li> <!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="article_czerwiec()">Ogród w czerwcu</button></li>
+                            <li><button onclick="article_podłoża()">Podłoże dla roślin</button></li>
+                            <li><button onclick="article_storczyk()">Hodowla stroczyków</button></li>
+                            <li><button onclick="article_lilie()">Hodowla lili</button></li>
+                            <li><button onclick="article_borówka()">Hodowla borówek</button></li>
+                            <li><button onclick="article_mech()">Mech w ogrodzie</button></li>
+                            <li><button onclick="article_kret()">Kret w ogrodzie</button></li>
+                            <li><button onclick="article_mrówki()">Mrówki w ogrodzie</button></li>
+                            <li><button onclick="article_ślimaki()">Ślimaki w ogrodzie</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Katalog roślin</a>
+                        <ul>
+                            <!-- Laboratorium 3 - galeria i Laboratorium 9 - wykorzystanie jquery lightbox -->
+                            <li><button onclick="katalog_drzewa()">Drzewa i krzewy</button></li><!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="katalog_kwiaty()">Kwiaty i rośliny ozdobne</button></li>
+                            <li><button onclick="katalog_owoce()">Owoce</button></li>
+                            <li><button onclick="katalog_warzywa()">Warzywa i zioła</button></li>
+                            <li><button onclick="katalog_chwasty()">Chwasty</button></li>
+                        </ul>
+                    </li>
+                    <!-- Laboratorium 10 - galeria z wykorzystaniem bootstrap -->
+                    <li><a href="galeria_bootstrap.html">Galeria</a></li>
+                    <!-- Laboratorium 11.1 - wykorzystanie lokalnych magazynów danych, Laboratorium 6 - funkcje JavaScript, Laboratorium 1.2 - tworzenie formularzy, Laboratorium 4 - ich zaawansowane możliwości, Laboratorium 8 - obsługa za pomocą javascript -->
+                    <li><a href="sklep.html">Sklep</a></li> <!-- formularz znajduje się po kliknięciu przejdź do realizacji zamówienia -->
+                    <!-- Laboratorium 11.2 - wykorzytanie geolokaliacji -->
+                    <li><a href="znajdz.html">Znajdź nas</a></li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <div id="strona_główna">
+                <h1>Najnowsze artykuły</h1>
+                <!-- Laboratorium 3 -->
+                <!-- Pozycjonowanie elementów na stronie -->
+                <div class="box"><!-- klasa zapewni mi możliwość ustawienia reguł w CSS dla wszystkich elementów tej klasy, ponieważ id jest unikatowy i nie może się powtarzać -->
+                    <button onclick="article_czerwiec()"><img src="images/czerwiec.jpg" alt="Czerwiec w ogrodzie"></button>
+                    <div class="tekst">
+                        <h3><button onclick="article_czerwiec()">Czerwiec w ogrodzie - co robić?</button></h3>
+                        <br>Czerwiec to miesiąc intensywnego wzrostu roślin i pierwszych plonów w ogrodzie użytkowym. Wysokie temperatury i długi dzień pozwalają ...
+                        <button onclick="article_czerwiec()">Czytaj dalej</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <button onclick="article_mech()"><img src="images/mech.jpg" alt="Mech"></button>
+                    <div class="tekst">
+                        <h3><button onclick="article_mech()">Mech na trawniku - skuteczne zwalczanie</button></h3>
+                        <br>Piękny i zadbany trawnik to wizytówka każdego ogrodu. Aby jednak mógł dobrze spełniać swoje zadanie, wymaga wielu zabiegów ...
+                        <button onclick="article_mech()">Czytaj dalej</button>
+                    </div>
+                </div>
+                <div class="box">
+                    <button onclick="article_ślimaki()"><img src="images/ślimaki.jpg" alt="Ślimaki"></button>
+                    <div class="tekst">
+                        <h3><button onclick="article_ślimaki()">Sposób na ślimaki</button></h3>
+                        <br>Śimaki mogą stanowić poważny problem, gdyż są to prawdopodobnie najbardziej żarłoczne szkodniki w naszych ogrodach. Mogą powodować ...
+                        <button onclick="article_ślimaki()">Czytaj dalej</button>
+                    </div>
+                </div>
+                <div class="box2">
+                    <button onclick="article_storczyk()"><img src="images/storczyk.jpg" alt="Storczyk"></button>
+                    <div class="tekst">
+                        <h3><button onclick="article_storczyk()">Dlaczego storczyk nie kwitnie?</button></h3>
+                        <br>Storczyki to jedne z najpiękniejszych roślin świata, które mamy okazję uprawiać w naszych mieszkaniach. Bogactwo gatunkowe storczyków ...
+                        <button onclick="article_storczyk()">Czytaj dalej</button>
+                    </div>
+                </div>
+                <div class="box2">
+                    <button onclick="article_lilie()"><img src="images/lilia.jpg" alt="Lilia"></button>
+                    <div class="tekst">
+                        <h3><button onclick="article_lilie()">Kiedy i jak sadzić lilie do ogrodu?</button></h3>
+                        <br>Lilie są czarującymi kwiatami i słynne są ze swojego intensywnego zapachu. Wybór jest ogromny, ponieważ istnieje ponad sto gatunków i tysiące odmian ...
+                        <button onclick="article_lilie()">Czytaj dalej</button>
+                    </div>
+                </div>
+                <div class="box2">
+                    <button onclick="article_borówka()"><img src="images/borówka.jpg" alt="Borówka"></button>
+                    <div class="tekst">
+                        <h3><button onclick="article_borówka()">Dlaczego borówka amerykańska nie owocuje?</button></h3>
+                        <br>Z każdym rokiem rośnie zainteresowanie ogrodników bliską krewniaczką naszych leśnych jagód – borówką ...
+                        <button onclick="article_borówka()">Czytaj dalej</button>
+                    </div>
+                </div>
+                <div id="pasek"><!-- boczna sekcja strony -->
+                    <h2>Zobacz więcej</h2>
+                    <h3>Choroby i szkodniki</h3>
+                    <ul>
+                        <li><button onclick="article_kret()">Jak pozbyć się kreta?</button></li>
+                        <li><button onclick="article_mrówki()">Jak zwalczać mrówki w ogrodzie?</button></li>
+                        <li><button onclick="article_ślimaki()">Jak wyprosić ślimaki z ogrodu?</button></li>
+                        <li><button onclick="article_mech()">Jak zniwelować mech powstający na trawniku?</button></li>
+                    </ul>
+                    <h3>Pomysły i inspiracje na aranżacje ogrodu</h3>
+                    <ul>
+                        <li><button onclick="katalog_drzewa()">Propozycje kwiatów i roślin ozdobnych</button></li>
+                        <li><button onclick="katalog_drzewa()">Propozycje drzew i krzewów</button></li>
+                        <li><button onclick="katalog_warzywa()">Propozycje warzyw i ziół</button></li>
+                        <li><button onclick="katalog_owoce()">Propozycje owoców</button></li>
+                    </ul>
+                </div>
+            </div>
+            <!-- elementy do generowania zawartości z generowanie.js -->
+            <div id="artykul"></div>
+            <div id="more"></div>
+        </section>
+        <footer>
+            <img src="images/trawa-tło.png" alt="Trawa">
+            <!-- w stopce umieszczam grafikę trawy oraz moje inicjały -->
+            &copy;JK
+        </footer>
+    </body>
+</html>

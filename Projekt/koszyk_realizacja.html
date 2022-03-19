@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="pl">
+    <head>
+        <title>Wspaniały Ogród</title>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="author" content="Jagoda Krystosiak"><!-- znacznik określa autora dokumentu -->
+        <link rel="icon" type="image/png" sizes="310x310" href="images/icon.png"><!-- ikona wyświetlana na pasku stron -->
+        
+        <!-- Laboratorium 2 -->
+        <!-- załadowanie do strony arkusza CSS -->
+        <link rel="stylesheet" href="CSS/style.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/tabele.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/nawigacja.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/pozycjonowanie.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/formularze.css" type="text/css" />
+        <link rel="stylesheet" href="CSS/media.css" type="text/css" /> <!-- w tym css Laboratorium 5 zapytania o media -->
+        
+        <!-- Laboratorium 9 -->
+        <!-- biblioteka jquery i wykorzystanie jquery lightbox -->
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+        <script src="js/lightbox.js"></script> 
+        <link rel="stylesheet" href="css/lightbox.css" />
+        
+        <!-- Laboratorium 7 -->
+        <!-- załadowanie do strony pliku javascript, który odpowiedzialny jest za generowanie zawartości na stronie -->
+        <script src="JS/generowanie.js"></script>
+        
+        <!-- funkcje odpowiedzialne za obsługę sklepu -->
+        <script src="JS/funkcje.js"></script>
+    </head>
+    <body onload="podlicz()">
+        <header>
+            <div id="baner">
+                <a href="index.html"><img src="images/logo.jpg" alt="Logo"></a>
+                <!-- w sekcji baner umieszczam zdjęcie z logo strony, które wykonałam samodzielnie, kliknięcie na logo prowadzi na stronę główną (index.html)-->
+            </div> 
+            <div id="menu">
+                <!-- Laboratorium 3 -->
+                <!-- Budowa nawigacji bazując na zadaniu 3.4 -->
+                <ul id="nav"><!-- nawigacja zawiera kilka poziomów, które będą edytowane w style.css -->
+                    <li><a href="index.html">Strona główna</a></li>
+                    <li><a href="">Porady</a>
+                        <ul>
+                            <!-- Laboratorium 1.1 - treść, Laboratorium 2 - tabele i Laboratorium 3 - zdjęcia z linkiem do ich samych -->
+                            <li><button onclick="article_maj()">Ogród w maju</button></li> <!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="article_czerwiec()">Ogród w czerwcu</button></li>
+                            <li><button onclick="article_podłoża()">Podłoże dla roślin</button></li>
+                            <li><button onclick="article_storczyk()">Hodowla stroczyków</button></li>
+                            <li><button onclick="article_lilie()">Hodowla lili</button></li>
+                            <li><button onclick="article_borówka()">Hodowla borówek</button></li>
+                            <li><button onclick="article_mech()">Mech w ogrodzie</button></li>
+                            <li><button onclick="article_kret()">Kret w ogrodzie</button></li>
+                            <li><button onclick="article_mrówki()">Mrówki w ogrodzie</button></li>
+                            <li><button onclick="article_ślimaki()">Ślimaki w ogrodzie</button></li>
+                        </ul>
+                    </li>
+                    <li><a href="">Katalog roślin</a>
+                        <ul>
+                            <!-- Laboratorium 3 - galeria i Laboratorium 9 - wykorzystanie jquery lightbox -->
+                            <li><button onclick="katalog_drzewa()">Drzewa i krzewy</button></li><!-- element button po naciśnięciu wywołuję funkcję z generowanie.js, która generuje zawartość strony -->
+                            <li><button onclick="katalog_kwiaty()">Kwiaty i rośliny ozdobne</button></li>
+                            <li><button onclick="katalog_owoce()">Owoce</button></li>
+                            <li><button onclick="katalog_warzywa()">Warzywa i zioła</button></li>
+                            <li><button onclick="katalog_chwasty()">Chwasty</button></li>
+                        </ul>
+                    </li>
+                    <!-- Laboratorium 10 - galeria z wykorzystaniem bootstrap -->
+                    <li><a href="galeria_bootstrap.html">Galeria</a></li>
+                    <!-- Laboratorium 11.1 - wykorzystanie lokalnych magazynów danych, Laboratorium 6 - funkcje JavaScript, Laboratorium 1.2 - tworzenie formularzy, Laboratorium 4 - ich zaawansowane możliwości, Laboratorium 8 - obsługa za pomocą javascript -->
+                    <li><a href="sklep.html">Sklep</a></li> <!-- formularz znajduje się po kliknięciu przejdź do realizacji zamówienia -->
+                    <!-- Laboratorium 11.2 - wykorzytanie geolokaliacji -->
+                    <li><a href="znajdz.html">Znajdź nas</a></li>
+                </ul>
+            </div>
+        </header>
+        <section>
+            <div id="strona_główna"></div>
+            <div id="artykul">
+            <h1>Realizacja zamówienia</h1>
+            <form>
+                <fieldset>
+                    <legend><h3>Adres dostawy: </h3></legend>
+                    <table id="tabela_ustawiająca">
+                        <tbody>
+                            <tr>
+                                <td>Imię: <br /><input type="text" name="imie" title="Pierwsza litera imienia powinna być duża. Imię nie powinno być krótsze niz 3 litery." placeholder="Podaj imię" required pattern="[A-Z][A-Za-z ]{2,20}"></td>
+                                <td>Nazwisko: <br /><input type="text" name="nazwisko" title="Pierwsza litera nazwiska powinna być duża. Nazwisko nie powinno być krótsze niż 3 Litery." placeholder="Podaj nazwisko" required pattern="[A-Z][A-Za-z \-]{2,20}"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Kraj: <br /><select name="państwo" required> 
+                                        <option label="Wybierz państwo"></option>
+                                        <option value="Polska">Polska</option>
+                                        <option value="Niemcy">Niemcy</option>
+                                        <option value="Anglia">Anglia</option>
+                                    </select>
+                                </td>
+                            </tr>
+                            <tr>
+                                <td>Ulica: <br /><input type='text' name="ulica" title="Dozwolone tylko litery i spacja. Nazwa ulicy nie powinna być krótsza niż 3 litery." placeholder="Podaj nazwę ulicy" required pattern="[A-Z][A-Za-z ]{2,20}"></td>
+                                <td>Numer domu/mieszkania: <br /><input type='text' name="nr_domu" placeholder="Podaj nr domu/mieszkania" required pattern="[0-9A-Za-z/]+"></td>
+                            </tr>
+                            <tr>
+                                <td>Kod pocztowy: <br /><input type='text' name="kod_poczt" title="Kod pocztowy powinien być podany w formie 00-000." placeholder="Podaj kod pocztowy" required pattern="[0-9]{2}-[0-9]{3}"></td>
+                                <td>Miejscowość: <br /><input type='text' name="miejsc" title="Pierwsza litera nazwy miejscowości powinna być duża. Nazwa miejscowości nie powinna być krótsza niż 3 litery." placeholder="Podaj nazwę miejscowości" required pattern="[A-Z][A-Za-z \-]{2,20}"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Numier telefonu: <br /><input type='tel' title="Numer telefonu powinien być podany w formie 000-000-000." placeholder="Podaj nr telefonu" required pattern="[0-9]{3}-[0-9]{3}-[0-9]{3}"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="form_info">Numer telefonu potrzebujemy do realizacji zamówienia.</td>
+                            </tr>
+                            <tr>
+                                <td colspan="2">Adres e-mail: <br /><input size='30' type='email' title="Adres e-mail powinien być w formacie xxx@xxx.xx" placeholder="Podaj adres e-mail" pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}"></td>
+                            </tr>
+                            <tr>
+                                <td colspan="2" class="form_info">Na ten adres wyślemy informację o zamówieniu.</td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </fieldset>
+                <fieldset>
+                    <legend><h3>Metoda płatności:</h3></legend>
+                    <input type='radio' name="metoda" value="przelew" title="Wybierz metodę płatności" required>szybki przelew<br />
+                    <input type='radio' name="metoda" value="blik" title="Wybierz metodę płatności" required>BLIK<br />
+                    <input type='radio' name="metoda" value="karta" title="Wybierz metodę płatności" required>karta płatnicza<br />
+                    <input type='radio' name="metoda" value="tr_przelew" title="Wybierz metodę płatności" required>tradycyjny przelew<br />
+                </fieldset>
+                <div id="razem"></div>
+                <p><input type="checkbox" name="akceptacja" title="Zgoda jest niezbędna do kontynuacji." required>*Wyrażam zgodę na przetwarzanie moich danych osobowych w celu realizacji zamówienia i zapoznałem/ałam się z <a href="">regulaminem</a>.</p>
+                <button>Przechodzę do płatności</button>
+            </form>
+            </div>
+            <div id="more"></div>
+        </section>
+        <footer>
+            <img src="images/trawa-tło.png" alt="Trawa">
+            <!-- w stopce umieszczam grafikę trawy oraz moje inicjały -->
+            &copy;JK
+        </footer>
+    </body>
+</html>
+
